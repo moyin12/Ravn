@@ -52,6 +52,12 @@ ul {
     margin: 0;
 }
 
+.amount-input{
+    border: 1px solid #666666;
+    border-radius: 4px;
+    padding-left: 5px;
+    color: #666666;
+}
 button,
 input[type='button'] {
     cursor: pointer;
