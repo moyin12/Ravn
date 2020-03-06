@@ -30,6 +30,13 @@
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
 
+    <style type="text/css">
+        #camera {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+
 </head>
 
 <body class="animsition">
@@ -219,6 +226,14 @@
                 </div>
             </header>
             <!-- HEADER DESKTOP-->
+
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <video id="camera" width="480" height="480" autoplay></video>
+                    </div>
+                </div>
+            </div>
 
             <!-- MAIN CONTENT-->
             <!-- <div class="main-content">
@@ -787,7 +802,18 @@
  </script>
 
  <!-- Main JS-->
+ <script src="js/main.js"></script>
  <script src="js/main2.js"></script>
+
+ <script type="text/javascript">
+     navigator.getUserMedia({ video: true }, stream => {
+        // $("#camera").attr("src", URL.createObjectURL(stream))
+        const vid = document.getElementById("camera")
+        vid.srcObject = stream
+
+        document.onclick = () => vid.play()
+    }, console.error)
+ </script>
 </body>
 
 </html>

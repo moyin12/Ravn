@@ -30,6 +30,13 @@
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
 
+    <style type="text/css">
+        #qrimg {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+
 </head>
 
 <body class="animsition">
@@ -232,7 +239,9 @@
                 <h2 class="mb-3">
                     Scan QR code
                 </h2>
-                <div id="qrcode"></div>
+                <div id="qrcode">
+                    <img src="" id="qrimg">
+                </div>
                 <!-- popup merchant info -->
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
                     Pay
@@ -324,7 +333,18 @@
  </script>
 
  <!-- Main JS-->
+ <script src="js/main.js"></script>
  <script src="js/main2.js"></script>
+
+<script type="text/javascript">
+    
+    $.get(getApi(`/merchants/${localStorage.merchant}/qrcode`))
+        .then(resp => {
+            const [img] = resp.data
+            document.getElementById("qrimg").src = img
+        })
+
+</script>
 
 </body>
 
