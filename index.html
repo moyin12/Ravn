@@ -30,6 +30,17 @@
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
 
+    <style type="text/css">
+        .trs > div {
+            background: #fff;
+            border-radius: 8px;
+            padding: 12px;
+            box-shadow: 0 4px 14px rgba(120,120,120,0.2);
+            width: 100%;
+            margin-bottom: 8px;
+        }
+    </style>
+
 </head>
 
 <body class="animsition">
@@ -221,7 +232,7 @@
             <!-- HEADER DESKTOP-->
 
             <!-- MAIN CONTENT-->
-            <div class="main-content">
+            <div class="main-content" style="padding-left: 22px;padding-right: 22px;">
                <div>
                    <h2 class="title-4">Transaction history</h2>
                </div>
@@ -234,7 +245,7 @@
                     <p>Today,
                         <date>5 March</date>
                     </p>
-                    <div class="container">
+                    <div class="container trs">
                         <div class="row row-cols-4">
                           <div class="col">
                               <p>
@@ -261,7 +272,7 @@
                     <p>Yesterday,
                         <date>4 March</date>
                     </p>
-                    <div class="container">
+                    <div class="container trs">
                         <div class="row row-cols-4">
                             <div class="col">
                                 <p>
@@ -327,7 +338,7 @@
                 <div>
                     <p><date>3 March</date>
                     </p>
-                    <div class="container">
+                    <div class="container trs">
                         <div class="row row-cols-4">
                             <div class="col">
                                 <p>
@@ -417,7 +428,23 @@
  </script>
 
  <!-- Main JS-->
+ <script src="js/main.js"></script>
  <script src="js/main2.js"></script>
+ <script type="text/javascript">
+     // $.get(getApi(`/users/${localStorage.user}/transactions`))
+     //    .then(resp => {
+     //        const div = $("#transactions")
+     //        div.html("")
+     //        resp.data.forEach(t => {
+     //            const { source, destination, amount } = t
+     //            const credit = destination == localStorage.user
+     //            const el = $("<div />")
+     //            // el.append()
+
+     //            div.append("<div>")
+     //        })
+     //    })
+ </script>
 </body>
 
 </html>

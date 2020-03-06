@@ -1,24 +1,44 @@
 
-(function ($) {
-    "use strict";
+const getApi = (suffix) => "http://localhost:8080" + suffix
+
+;(function ($) {
+    // "use strict";
+
+    // ============================================  Ravn code
+
+    $("#loginForm").on("submit", event => {
+        event.preventDefault()
+        const email = $("input[name='email']").val()
+        const password = $("input[name='pass']").val()
+        console.log(email, password)
+        $.post(getApi("/users/login"), { email, password })
+            .then(resp => {
+                const [user] = resp.data
+                localStorage.user = user._id
+                location.href = "/index.html"
+            })
+    })
+
+
+    // ========================================
 
     
     /*==================================================================
     [ Validate ]*/
     var input = $('.validate-input .input100');
 
-    $('.validate-form').on('submit',function(){
-        var check = true;
+    // $('.validate-form').on('submit',function(){
+    //     var check = true;
 
-        for(var i=0; i<input.length; i++) {
-            if(validate(input[i]) == false){
-                showValidate(input[i]);
-                check=false;
-            }
-        }
+    //     for(var i=0; i<input.length; i++) {
+    //         if(validate(input[i]) == false){
+    //             showValidate(input[i]);
+    //             check=false;
+    //         }
+    //     }
 
-        return check;
-    });
+    //     return check;
+    // });
 
 
     $('.validate-form .input100').each(function(){
