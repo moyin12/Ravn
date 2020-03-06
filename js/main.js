@@ -16,7 +16,7 @@ const getApi = (suffix) => "http://localhost:8080" + suffix
                 const [user] = resp.data
                 localStorage.user = user._id
                 localStorage.merchant = user.merchant
-                location.href = "/index.html"
+                location.href = "./index.html"
             })
     })
 
